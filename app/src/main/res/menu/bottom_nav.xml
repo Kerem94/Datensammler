@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/optionsMenu"
+    android:icon="@drawable/ic_options"
+    android:title="@string/options"/>
+
+    <item
+        android:id="@+id/liveDataMenu"
+        android:icon="@drawable/ic_fast_forward_black_24dp"
+        android:title="@string/liveData"/>
+
+    <item
+        android:id="@+id/graphMenu"
+        android:icon="@drawable/ic_show_chart_black_24dp"
+        android:title="@string/graph"/>
+
+</menu>

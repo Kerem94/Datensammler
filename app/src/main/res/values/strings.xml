@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Datensammler2020</string>
+    <string name="options">Options</string>
+    <string name="liveData">Live Data</string>
+    <string name="graph">Graph</string>
+    <string name="accelerometer">Accelerometer</string>
+    <string name="gyroscope">Gyroscope</string>
+    <string name="gravity">Gravity</string>
+    <string name="linearAcc">Linear Acceleration</string>
+    <string name="proximity">Proximity</string>
+    <string name="light">Light</string>
+    <string name="magneticField">Magnetic Field</string>
+</resources>
