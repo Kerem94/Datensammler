@@ -10,4 +10,11 @@
     <string name="proximity">Proximity</string>
     <string name="light">Light</string>
     <string name="magneticField">Magnetic Field</string>
+    <string name="preference_is_accelerometer_activated">preference_is_accelerometer_activated</string>
+    <string name="preference_is_gyroscope_activated">preference_is_gyroscope_activated</string>
+    <string name="preference_is_gravity_activated">preference_is_gravity_activated</string>
+    <string name="preference_is_linear_acceleration_activated">preference_is_linear_acceleration_activated</string>
+    <string name="preference_is_proximity_activated">preference_is_proximity_activated</string>
+    <string name="preference_is_light_activated">preference_is_light_activated</string>
+    <string name="preference_is_magnetic_field_activated">preference_is_magnetic_field_activated</string>
 </resources>
