@@ -2,10 +2,9 @@ package com.example.datensammler2020.SharedPreferences
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import com.example.datensammler2020.R
 
-@Suppress("DEPRECATION")
 class SharedPreferences(private var context: Context) {
 
     private var preferences: SharedPreferences =

@@ -23,10 +23,8 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
         view.accelerometerSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
                 sharedPreferences.setAccelerometerActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isAccelerometerActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
                 sharedPreferences.setAccelerometerActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isAccelerometerActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -35,10 +33,8 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
         view.gyroscopeSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
                 sharedPreferences.setGyroActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isGyroActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
                 sharedPreferences.setGyroActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isGyroActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -46,10 +42,8 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
         view.gravitySwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
                 sharedPreferences.setGravityActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isGravityActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
                 sharedPreferences.setGravityActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isGravityActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -57,10 +51,8 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
         view.linearAccSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
                 sharedPreferences.setLinearAccelerationActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isLinearAccelerationActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
                 sharedPreferences.setLinearAccelerationActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isLinearAccelerationActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -68,10 +60,8 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
         view.proximitySwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
                 sharedPreferences.setProximityActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isProximityActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
                 sharedPreferences.setProximityActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isProximityActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -79,10 +69,8 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
         view.lightSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
                 sharedPreferences.setLightActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isLightActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
                 sharedPreferences.setLightActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isLightActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -90,10 +78,8 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
         view.magnetFieldSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
                 sharedPreferences.setMagneticFieldActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isMagneticFieldActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
                 sharedPreferences.setMagneticFieldActivated(isChecked)
-                Toast.makeText(context,sharedPreferences.isMagneticFieldActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
