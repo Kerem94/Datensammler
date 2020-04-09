@@ -1,4 +1,4 @@
-package com.example.datensammler2020.View
+package com.example.datensammler2020.View.Options
 
 import android.content.Context
 import android.view.View
@@ -22,10 +22,10 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
     private fun accelerometerListener(){
         view.accelerometerSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
-                sharedPreferences.setAccelerometerActivated(true)
+                sharedPreferences.setAccelerometerActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isAccelerometerActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
-                sharedPreferences.setAccelerometerActivated(false)
+                sharedPreferences.setAccelerometerActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isAccelerometerActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
@@ -34,10 +34,10 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
     private fun gyroListener(){
         view.gyroscopeSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
-                sharedPreferences.setGyroActivated(true)
+                sharedPreferences.setGyroActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isGyroActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
-                sharedPreferences.setGyroActivated(false)
+                sharedPreferences.setGyroActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isGyroActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
@@ -45,10 +45,10 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
     private fun gravityListener(){
         view.gravitySwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
-                sharedPreferences.setGravityActivated(true)
+                sharedPreferences.setGravityActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isGravityActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
-                sharedPreferences.setGravityActivated(false)
+                sharedPreferences.setGravityActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isGravityActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
@@ -56,10 +56,10 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
     private fun linearAccelerationListener(){
         view.linearAccSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
-                sharedPreferences.setLinearAccelerationActivated(true)
+                sharedPreferences.setLinearAccelerationActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isLinearAccelerationActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
-                sharedPreferences.setLinearAccelerationActivated(false)
+                sharedPreferences.setLinearAccelerationActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isLinearAccelerationActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
@@ -67,10 +67,10 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
     private fun proximityListener(){
         view.proximitySwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
-                sharedPreferences.setProximityActivated(true)
+                sharedPreferences.setProximityActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isProximityActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
-                sharedPreferences.setProximityActivated(false)
+                sharedPreferences.setProximityActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isProximityActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
@@ -78,10 +78,10 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
     private fun lightListener(){
         view.lightSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
-                sharedPreferences.setLightActivated(true)
+                sharedPreferences.setLightActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isLightActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
-                sharedPreferences.setLightActivated(false)
+                sharedPreferences.setLightActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isLightActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }
@@ -89,10 +89,10 @@ class SwitchOptions(private val view: View, private val sharedPreferences: Share
     private fun magneticFieldListener(){
         view.magnetFieldSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
-                sharedPreferences.setMagneticFieldActivated(true)
+                sharedPreferences.setMagneticFieldActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isMagneticFieldActivated().toString(), Toast.LENGTH_SHORT).show()
             } else{
-                sharedPreferences.setMagneticFieldActivated(false)
+                sharedPreferences.setMagneticFieldActivated(isChecked)
                 Toast.makeText(context,sharedPreferences.isMagneticFieldActivated().toString(), Toast.LENGTH_SHORT).show()
             }
         }

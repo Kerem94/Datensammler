@@ -1,4 +1,4 @@
-package com.example.datensammler2020.View
+package com.example.datensammler2020.View.LiveData
 
 import android.content.Context
 import android.hardware.Sensor
@@ -7,23 +7,16 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import com.example.datensammler2020.R
-import com.example.datensammler2020.SharedPreferences.SharedPreferences
-import kotlinx.android.synthetic.main.fragment_options.*
 
-class OptionsFragment : Fragment(), SensorEventListener{
-    private var mSensorManager : SensorManager ?= null
-    private var mAccelerometer : Sensor ?= null
+class LiveDataFragment : Fragment(), SensorEventListener {
+
+    private var mSensorManager: SensorManager? = null
+    private var mAccelerometer: Sensor? = null
     private var resume = true;
-    private val sharedPreferences by lazy { SharedPreferences(requireContext()) }
 
 
     override fun onCreateView(
@@ -31,7 +24,7 @@ class OptionsFragment : Fragment(), SensorEventListener{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_options, container, false)
+        return inflater.inflate(R.layout.fragment_live_data, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,17 +33,15 @@ class OptionsFragment : Fragment(), SensorEventListener{
         mAccelerometer = mSensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val switchOptions = SwitchOptions(requireView(),sharedPreferences,context)
-        switchOptions.addListener()
-    }
-
     override fun onResume() {
         super.onResume()
         mSensorManager?.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL)
     }
 
+
+    companion object {
+        fun newInstance(): LiveDataFragment = LiveDataFragment()
+    }
 
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
@@ -62,4 +53,5 @@ class OptionsFragment : Fragment(), SensorEventListener{
             }
         }
     }
+
 }
