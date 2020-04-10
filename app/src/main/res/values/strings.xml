@@ -17,4 +17,7 @@
     <string name="preference_is_proximity_activated">preference_is_proximity_activated</string>
     <string name="preference_is_light_activated">preference_is_light_activated</string>
     <string name="preference_is_magnetic_field_activated">preference_is_magnetic_field_activated</string>
+    <string name="x">x</string>
+    <string name="y">y</string>
+    <string name="z">z</string>
 </resources>
