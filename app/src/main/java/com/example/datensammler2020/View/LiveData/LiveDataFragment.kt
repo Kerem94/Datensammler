@@ -19,6 +19,12 @@ class LiveDataFragment : Fragment(), SensorEventListener {
 
     private var mSensorManager: SensorManager? = null
     private var mAccelerometer: Sensor? = null
+    private var mGyro : Sensor? = null
+    private var mGravity : Sensor? = null
+    private var mLinAcc : Sensor? = null
+    private  var mProximity : Sensor? = null
+    private var mLight : Sensor? = null
+    private var mMagneticField : Sensor? = null
     private var resume = true;
     private val sharedPreferences by lazy { SharedPreferences(requireContext()) }
 
@@ -39,16 +45,35 @@ class LiveDataFragment : Fragment(), SensorEventListener {
         super.onViewCreated(view, savedInstanceState)
         mSensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         mAccelerometer = mSensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        mGyro = mSensorManager!!.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
+        mGravity = mSensorManager!!.getDefaultSensor(Sensor.TYPE_GRAVITY)
+        mLinAcc = mSensorManager!!.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
+        mProximity = mSensorManager!!.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+        mLight = mSensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)
+        mMagneticField = mSensorManager!!.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
     }
 
     override fun onResume() {
         super.onResume()
         mSensorManager?.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL)
+        mSensorManager?.registerListener(this, mGyro, SensorManager.SENSOR_DELAY_NORMAL)
+        mSensorManager?.registerListener(this, mGravity, SensorManager.SENSOR_DELAY_NORMAL)
+        mSensorManager?.registerListener(this, mLinAcc, SensorManager.SENSOR_DELAY_NORMAL)
+        mSensorManager?.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_NORMAL)
+        mSensorManager?.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL)
+        mSensorManager?.registerListener(this, mMagneticField, SensorManager.SENSOR_DELAY_NORMAL)
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         mSensorManager?.unregisterListener(this, mAccelerometer)
+        mSensorManager?.unregisterListener(this, mGyro)
+        mSensorManager?.unregisterListener(this, mGravity)
+        mSensorManager?.unregisterListener(this, mLinAcc)
+        mSensorManager?.unregisterListener(this, mProximity)
+        mSensorManager?.unregisterListener(this, mLight)
+        mSensorManager?.unregisterListener(this, mMagneticField)
     }
 
 
@@ -64,19 +89,94 @@ class LiveDataFragment : Fragment(), SensorEventListener {
         if (event != null && resume) {
             if (event.sensor.type == Sensor.TYPE_ACCELEROMETER) {
                 accelerometerTv(event)
+           }
+            if (event.sensor.type == Sensor.TYPE_GYROSCOPE) {
+                gyroTv(event)
+            }
+            if (event.sensor.type == Sensor.TYPE_GRAVITY) {
+                gravityTv(event)
+            }
+            if (event.sensor.type == Sensor.TYPE_LINEAR_ACCELERATION) {
+                linAccTv(event)
+            }
+            if (event.sensor.type == Sensor.TYPE_PROXIMITY) {
+                proximityTv(event)
+            }
+            if (event.sensor.type == Sensor.TYPE_LIGHT) {
+                lighTv(event)
+            }
+            if (event.sensor.type == Sensor.TYPE_MAGNETIC_FIELD) {
+                magneticFieldTv(event)
             }
         }
     }
 
     private fun accelerometerTv(event: SensorEvent){
         if (sharedPreferences.isAccelerometerActivated()){
-            requireActivity().findViewById<TextView>(R.id.accelerometerTvX).text = event.values[0].toString()
-            requireActivity().findViewById<TextView>(R.id.accelerometerTvY).text = event.values[1].toString()
-            requireActivity().findViewById<TextView>(R.id.accelerometerTvZ).text = event.values[2].toString()
+            requireActivity().findViewById<TextView>(R.id.accTvX).text = event.values[0].toString()
+            requireActivity().findViewById<TextView>(R.id.accTvY).text = event.values[1].toString()
+            requireActivity().findViewById<TextView>(R.id.accTvZ).text = event.values[2].toString()
         } else{
             return
         }
-
     }
+
+    private fun gyroTv(event: SensorEvent){
+        if (sharedPreferences.isGyroActivated()){
+            requireActivity().findViewById<TextView>(R.id.gyroTvX).text = event.values[0].toString()
+            requireActivity().findViewById<TextView>(R.id.gyroTvY).text = event.values[1].toString()
+            requireActivity().findViewById<TextView>(R.id.gyroTvZ).text = event.values[2].toString()
+        } else{
+            return
+        }
+    }
+
+    private fun gravityTv(event: SensorEvent){
+        if (sharedPreferences.isGravityActivated()){
+            requireActivity().findViewById<TextView>(R.id.gravityTvX).text = event.values[0].toString()
+            requireActivity().findViewById<TextView>(R.id.gravityTvY).text = event.values[1].toString()
+            requireActivity().findViewById<TextView>(R.id.gravityTvZ).text = event.values[2].toString()
+        } else{
+            return
+        }
+    }
+
+    private fun linAccTv(event: SensorEvent){
+        if (sharedPreferences.isLinearAccelerationActivated()){
+            requireActivity().findViewById<TextView>(R.id.linearAccTvX).text = event.values[0].toString()
+            requireActivity().findViewById<TextView>(R.id.linearAccTvY).text = event.values[1].toString()
+            requireActivity().findViewById<TextView>(R.id.linearAccTvZ).text = event.values[2].toString()
+        } else{
+            return
+        }
+    }
+
+    private fun proximityTv(event: SensorEvent){
+        if (sharedPreferences.isProximityActivated()){
+            requireActivity().findViewById<TextView>(R.id.proximityTvX).text = event.values[0].toString()
+        } else{
+            return
+        }
+    }
+
+    private fun lighTv(event: SensorEvent){
+        if (sharedPreferences.isLightActivated()){
+            requireActivity().findViewById<TextView>(R.id.lightTvX).text = event.values[0].toString()
+        } else{
+            return
+        }
+    }
+
+    private fun magneticFieldTv(event: SensorEvent){
+        if (sharedPreferences.isMagneticFieldActivated()){
+            requireActivity().findViewById<TextView>(R.id.magneticFIeldTvX).text = event.values[0].toString()
+            requireActivity().findViewById<TextView>(R.id.magneticFIeldTvY).text = event.values[1].toString()
+            requireActivity().findViewById<TextView>(R.id.magneticFIeldTvZ).text = event.values[2].toString()
+        } else{
+            return
+        }
+    }
+
+
 
 }

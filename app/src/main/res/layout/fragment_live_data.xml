@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,4 +7,255 @@
     android:orientation="vertical">
 
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    <LinearLayout
+        android:id="@+id/sensorLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_divider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/SensorsTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sensors" />
+
+        <TextView
+            android:id="@+id/accelerometerTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accelerometer" />
+
+        <TextView
+            android:id="@+id/gyroTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gyroscope" />
+
+        <TextView
+            android:id="@+id/gravityTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gravity" />
+
+        <TextView
+            android:id="@+id/linearAccTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Linear Acc" />
+
+        <TextView
+            android:id="@+id/proximtyTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proximity" />
+
+        <TextView
+            android:id="@+id/lighTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Light" />
+
+        <TextView
+            android:id="@+id/magneticFieldTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Magnetic Field" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutX"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:divider="@drawable/empty_divider"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        app:layout_constraintStart_toEndOf="@+id/sensorLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/xTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X" />
+
+        <TextView
+            android:id="@+id/accTvX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/gyroTvX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/gravityTvX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/linearAccTvX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/proximityTvX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/lightTvX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/magneticFIeldTvX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutY"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_divider"
+        app:layout_constraintEnd_toStartOf="@+id/layoutZ"
+        app:layout_constraintStart_toEndOf="@+id/layoutX"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/YTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y" />
+
+        <TextView
+            android:id="@+id/accTvY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/gyroTvY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/gravityTvY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/linearAccTvY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/proximityTvY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/lightTvY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/magneticFIeldTvY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutZ"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_divider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/ZTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Z" />
+
+        <TextView
+            android:id="@+id/accTvZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/gyroTvZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/gravityTvZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/linearAccTvZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/proximityTvZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/lightTvZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/magneticFIeldTvZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
