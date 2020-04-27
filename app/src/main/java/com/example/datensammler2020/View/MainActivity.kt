@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import com.example.datensammler2020.R
+import com.example.datensammler2020.Sql.DbHelper
 import com.example.datensammler2020.View.Graph.GraphFragment
 import com.example.datensammler2020.View.LiveData.LiveDataFragment
 import com.example.datensammler2020.View.Options.OptionsFragment
@@ -13,6 +14,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var toolbar: ActionBar
+    companion object{
+        private lateinit  var dbHelper: DbHelper
+        fun getdbHelper(): DbHelper{return dbHelper}
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         toolbar = supportActionBar!!
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_nav_mainActivity)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        dbHelper = DbHelper(this)
+
     }
 
     private val mOnNavigationItemSelectedListener =
