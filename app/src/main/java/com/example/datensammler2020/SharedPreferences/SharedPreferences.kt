@@ -80,4 +80,14 @@ class SharedPreferences(private var context: Context) {
         preferences.edit().putBoolean(key, isMagneticFieldActivated).apply()
     }
 
+    fun isDbActivated(): Boolean {
+        val key = context.getString(R.string.preference_is_save_to_db_activated)
+        return preferences.getBoolean(key, false)
+    }
+
+    fun setDbActivated(isDbActivated: Boolean) {
+        val key = context.getString(R.string.preference_is_save_to_db_activated)
+        preferences.edit().putBoolean(key, isDbActivated).apply()
+    }
+
 }

@@ -9,10 +9,4 @@
         android:id="@+id/liveDataMenu"
         android:icon="@drawable/ic_fast_forward_black_24dp"
         android:title="@string/liveData"/>
-
-    <item
-        android:id="@+id/graphMenu"
-        android:icon="@drawable/ic_show_chart_black_24dp"
-        android:title="@string/graph"/>
-
 </menu>

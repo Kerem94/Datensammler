@@ -69,6 +69,13 @@
             android:layout_height="wrap_content"
             android:text="Magnetic Field" />
 
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/save_to_db_switch"
+            android:paddingTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save_data_to_db" />
+
 
     </LinearLayout>
 
@@ -258,4 +265,5 @@
             android:text="" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

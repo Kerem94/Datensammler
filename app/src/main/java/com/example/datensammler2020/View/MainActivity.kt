@@ -6,7 +6,6 @@ import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import com.example.datensammler2020.R
 import com.example.datensammler2020.Sql.DbHelper
-import com.example.datensammler2020.View.Graph.GraphFragment
 import com.example.datensammler2020.View.LiveData.LiveDataFragment
 import com.example.datensammler2020.View.Options.OptionsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -45,11 +44,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.liveDataMenu -> {
                     val liveDataFragment = LiveDataFragment.newInstance()
                     openFragment(liveDataFragment)
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.graphMenu -> {
-                    val graphFragment = GraphFragment.newInstance()
-                    openFragment(graphFragment)
                     return@OnNavigationItemSelectedListener true
                 }
             }

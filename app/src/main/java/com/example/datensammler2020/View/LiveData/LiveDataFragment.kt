@@ -1,21 +1,25 @@
 package com.example.datensammler2020.View.LiveData
 
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.datensammler2020.R
 import com.example.datensammler2020.SharedPreferences.SharedPreferences
 import com.example.datensammler2020.Sql.*
 import com.example.datensammler2020.View.MainActivity
 import kotlinx.android.synthetic.main.fragment_live_data.*
+import kotlinx.android.synthetic.main.fragment_options.view.*
 
 class LiveDataFragment : Fragment(), SensorEventListener {
 
@@ -47,6 +51,8 @@ class LiveDataFragment : Fragment(), SensorEventListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setSwitchButton()
+        dbSwitchListener()
         mSensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         mAccelerometer = mSensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         mGyro = mSensorManager!!.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
@@ -85,6 +91,16 @@ class LiveDataFragment : Fragment(), SensorEventListener {
         fun newInstance(): LiveDataFragment = LiveDataFragment()
     }
 
+    private fun dbSwitchListener(){
+        save_to_db_switch.setOnCheckedChangeListener { _, isChecked ->
+            sharedPreferences.setDbActivated(isChecked)
+        }
+    }
+
+    private fun setSwitchButton(){
+        save_to_db_switch.isChecked = sharedPreferences.isDbActivated()
+    }
+
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
     }
@@ -120,8 +136,10 @@ class LiveDataFragment : Fragment(), SensorEventListener {
             requireActivity().findViewById<TextView>(R.id.accTvX).text = event.values[0].toString()
             requireActivity().findViewById<TextView>(R.id.accTvY).text = event.values[1].toString()
             requireActivity().findViewById<TextView>(R.id.accTvZ).text = event.values[2].toString()
-            var ass = AccelerometerSensor(event.values[0],event.values[1],event.values[2])
-            this.dbHelper.insertAccelerometerSensorData(ass)
+            if (sharedPreferences.isDbActivated()) {
+                var ass = AccelerometerSensor(event.values[0], event.values[1], event.values[2])
+                this.dbHelper.insertAccelerometerSensorData(ass)
+            }
         } else{
             return
         }
@@ -132,8 +150,10 @@ class LiveDataFragment : Fragment(), SensorEventListener {
             requireActivity().findViewById<TextView>(R.id.gyroTvX).text = event.values[0].toString()
             requireActivity().findViewById<TextView>(R.id.gyroTvY).text = event.values[1].toString()
             requireActivity().findViewById<TextView>(R.id.gyroTvZ).text = event.values[2].toString()
-            var gs = Gyro_Sensor(event.values[0],event.values[1],event.values[2])
-            this.dbHelper.insertGyroSensorData(gs)
+            if (sharedPreferences.isDbActivated()) {
+                var gs = Gyro_Sensor(event.values[0], event.values[1], event.values[2])
+                this.dbHelper.insertGyroSensorData(gs)
+            }
         } else{
             return
         }
@@ -144,8 +164,10 @@ class LiveDataFragment : Fragment(), SensorEventListener {
             requireActivity().findViewById<TextView>(R.id.gravityTvX).text = event.values[0].toString()
             requireActivity().findViewById<TextView>(R.id.gravityTvY).text = event.values[1].toString()
             requireActivity().findViewById<TextView>(R.id.gravityTvZ).text = event.values[2].toString()
-            var gs = Gravity_Sensor(event.values[0],event.values[1],event.values[2])
-            this.dbHelper.insertGravitySensorData(gs)
+            if (sharedPreferences.isDbActivated()) {
+                var gs = Gravity_Sensor(event.values[0], event.values[1], event.values[2])
+                this.dbHelper.insertGravitySensorData(gs)
+            }
         } else{
             return
         }
@@ -156,8 +178,10 @@ class LiveDataFragment : Fragment(), SensorEventListener {
             requireActivity().findViewById<TextView>(R.id.linearAccTvX).text = event.values[0].toString()
             requireActivity().findViewById<TextView>(R.id.linearAccTvY).text = event.values[1].toString()
             requireActivity().findViewById<TextView>(R.id.linearAccTvZ).text = event.values[2].toString()
-            var ls = LinAcc_Sensor(event.values[0],event.values[1],event.values[2])
-            this.dbHelper.insertLinAccSensorData(ls)
+            if (sharedPreferences.isDbActivated()) {
+                var ls = LinAcc_Sensor(event.values[0], event.values[1], event.values[2])
+                this.dbHelper.insertLinAccSensorData(ls)
+            }
         } else{
             return
         }
@@ -166,8 +190,10 @@ class LiveDataFragment : Fragment(), SensorEventListener {
     private fun proximityTv(event: SensorEvent){
         if (sharedPreferences.isProximityActivated()){
             requireActivity().findViewById<TextView>(R.id.proximityTvX).text = event.values[0].toString()
-            var ps = Proximity_Sensor(event.values[0])
-            this.dbHelper.insertProximitySensorData(ps)
+            if (sharedPreferences.isDbActivated()) {
+                var ps = Proximity_Sensor(event.values[0])
+                this.dbHelper.insertProximitySensorData(ps)
+            }
         } else{
             return
         }
@@ -176,8 +202,10 @@ class LiveDataFragment : Fragment(), SensorEventListener {
     private fun lighTv(event: SensorEvent){
         if (sharedPreferences.isLightActivated()){
             requireActivity().findViewById<TextView>(R.id.lightTvX).text = event.values[0].toString()
-            var ls = Light_Sensor(event.values[0])
-            this.dbHelper.insertLightSensorData(ls)
+            if (sharedPreferences.isDbActivated()) {
+                var ls = Light_Sensor(event.values[0])
+                this.dbHelper.insertLightSensorData(ls)
+            }
         } else{
             return
         }
@@ -188,8 +216,10 @@ class LiveDataFragment : Fragment(), SensorEventListener {
             requireActivity().findViewById<TextView>(R.id.magneticFIeldTvX).text = event.values[0].toString()
             requireActivity().findViewById<TextView>(R.id.magneticFIeldTvY).text = event.values[1].toString()
             requireActivity().findViewById<TextView>(R.id.magneticFIeldTvZ).text = event.values[2].toString()
-            var ms = MagneticField_Sensor(event.values[0],event.values[1],event.values[2])
-            this.dbHelper.insertMagneticFieldSensorData(ms)
+            if (sharedPreferences.isDbActivated()) {
+                var ms = MagneticField_Sensor(event.values[0], event.values[1], event.values[2])
+                this.dbHelper.insertMagneticFieldSensorData(ms)
+            }
         } else{
             return
         }

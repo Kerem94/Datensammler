@@ -17,6 +17,8 @@
     <string name="preference_is_proximity_activated">preference_is_proximity_activated</string>
     <string name="preference_is_light_activated">preference_is_light_activated</string>
     <string name="preference_is_magnetic_field_activated">preference_is_magnetic_field_activated</string>
+    <string name="preference_is_save_to_db_activated">preference_is_save_to_db_activated</string>
+    <string name="save_data_to_db">Database</string>
     <string name="x">x</string>
     <string name="y">y</string>
     <string name="z">z</string>
